@@ -1,0 +1,26 @@
+{
+	"name": "gyro-thing",
+	"version": "0.0.1",
+	"private": true,
+	"author": "Kang Yun Wang <me@kyunwang.nl> (https://www.kyunwang.nl)",
+	"license": "MIT",
+	"description": "",
+	"keywords": [],
+	"scripts": {
+		"start": "concurrently  -  kill-others \"npm run server\" \"npm run client\"",
+		"client": "cd client && yarn start",
+		"server": "cd server && npm start"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kyunwang/gyro-thing.git"
+	},
+	"bugs": {
+		"url": "https://github.com/kyunwang/gyro-thing/issues"
+	},
+	"homepage": "https://github.com/kyunwang/gyro-thing",
+	"dependencies": {
+		"concurrently": "^4.1.2",
+		"npm-run-all": "^4.1.5"
+	}
+}

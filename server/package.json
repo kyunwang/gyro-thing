@@ -1,0 +1,25 @@
+{
+	"name": "server",
+	"version": "0.0.1",
+	"private": true,
+	"author": "Kang Yun Wang <me@kyunwang.nl> (https://www.kyunwang.nl)",
+	"license": "MIT",
+	"description": "",
+	"keywords": [],
+	"scripts": {
+		"start": "nodemon index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/kyunwang/server.git"
+	},
+	"bugs": {
+		"url": "https://github.com/kyunwang/server/issues"
+	},
+	"homepage": "https://github.com/kyunwang/server",
+	"dependencies": {
+		"express": "^4.17.1",
+		"nodemon": "^1.19.1",
+		"ws": "^7.1.2"
+	}
+}
