@@ -19,7 +19,7 @@ class App extends Component {
 
 	componentDidMount() {
 		const { isMobile } = this.state;
-		const url = 'ws://192.168.1.8:8080';
+		const url = 'wss://gyro-thing-server-imwbhkzgzj.now.sh';
 		
 		const wsClient = initSockets({url, callback: this.handleSockets});
 		
