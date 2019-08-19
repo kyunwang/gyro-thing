@@ -10,6 +10,7 @@
 		"start": "concurrently  -  kill-others \"npm run server\" \"npm run client\"",
 		"client": "cd client && yarn start",
 		"server": "cd server && npm start",
+		"predeploy": "cd client && yarn build",
 		"deploy": "gh-pages -d ./client/build"
 	},
 	"repository": {

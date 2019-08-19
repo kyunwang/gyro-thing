@@ -29,7 +29,7 @@
 	"bugs": {
 		"url": "https://github.com/kyunwang/client/issues"
 	},
-	"homepage": "https://github.com/kyunwang/client",
+	"homepage": "https://kyunwang.github.io/gyro-thing/",
 	"eslintConfig": {
 		"extends": "react-app"
 	},
