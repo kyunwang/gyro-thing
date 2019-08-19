@@ -1,5 +1,5 @@
 {
-	"name": "server",
+	"name": "gyro-thing-server",
 	"version": "0.0.1",
 	"private": true,
 	"author": "Kang Yun Wang <me@kyunwang.nl> (https://www.kyunwang.nl)",
