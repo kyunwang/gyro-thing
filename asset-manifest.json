@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/kyunwang/client/static/css/main.19830526.chunk.css",
+    "main.js": "/kyunwang/client/static/js/main.e76a2f13.chunk.js",
+    "main.js.map": "/kyunwang/client/static/js/main.e76a2f13.chunk.js.map",
+    "runtime~main.js": "/kyunwang/client/static/js/runtime~main.20f5917c.js",
+    "runtime~main.js.map": "/kyunwang/client/static/js/runtime~main.20f5917c.js.map",
+    "static/js/2.f606d68c.chunk.js": "/kyunwang/client/static/js/2.f606d68c.chunk.js",
+    "static/js/2.f606d68c.chunk.js.map": "/kyunwang/client/static/js/2.f606d68c.chunk.js.map",
+    "index.html": "/kyunwang/client/index.html",
+    "precache-manifest.dd8fc4561449299115bdc7a0c921b0f2.js": "/kyunwang/client/precache-manifest.dd8fc4561449299115bdc7a0c921b0f2.js",
+    "service-worker.js": "/kyunwang/client/service-worker.js",
+    "static/css/main.19830526.chunk.css.map": "/kyunwang/client/static/css/main.19830526.chunk.css.map"
+  }
+}
