@@ -19,7 +19,7 @@ class App extends Component {
 
 	componentDidMount() {
 		const { isMobile } = this.state;
-		const url = 'ws ip';
+		const url = 'ws://192.168.1.8:8080';
 		
 		const wsClient = initSockets({url, callback: this.handleSockets});
 		
@@ -103,6 +103,9 @@ class App extends Component {
 						? <Controller onSubmit={this.handleSubmitCode} connectionID={connectionID} />
 						: <Viewer orientation={orientation} connectionID={connectionID} />
 				}
+				<footer>
+					Made on a 🛋 by <a href="https://github.com/kyunwang">kyunwang</a>. Repo <a href="https://github.com/kyunwang/gyro-thing">here</a>
+			</footer>
 			</div>
 		);
 	}

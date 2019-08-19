@@ -1,10 +1,5 @@
 const WebSocket = require('ws');
-const {
-	detectMobile,
-	parseJSON,
-	readySocketData,
-	stringifyJSON,
-} = require('./helpers');
+const { detectMobile, parseJSON, readySocketData } = require('./helpers');
 
 const wss = new WebSocket.Server({ port: 8080 });
 

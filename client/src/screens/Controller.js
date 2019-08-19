@@ -4,6 +4,40 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 
+// Yup another repeat
+const styles = {
+	p: {
+		fontWeight: 300,
+		fontSize: '1.2rem',
+		letterSpacing: '.2rem',
+		lineHeight: 1.3
+	},
+	input: {
+		border: 'none',
+		borderBottom: '2px solid rgba(255, 255, 255, .6)',
+		fontSize: '3.2rem',
+		color: '#fff',
+		backgroundColor: 'transparent',
+		width: '100%',
+		maxWidth: '24rem'
+	},
+	button: {
+		display: 'block',
+		letterSpacing: '.2rem',
+		color: '#fff',
+		backgroundColor: 'transparent',
+		width: '100%',
+		maxWidth: '24rem',
+		marginTop: '1.2rem',
+		padding: '.8rem',
+		border: '2px solid #fff',
+	},
+	pre: {
+		fontSize: '3.6rem',
+		textAlign: 'center'
+	}
+}
+
 const Controller = ({connectionID, onSubmit}) => {
 	const [viewCode, setViewCode] = useState(null);
 
@@ -21,17 +55,19 @@ const Controller = ({connectionID, onSubmit}) => {
 	if (connectionID) {
 		return (
 			<div>
-				<p>Yay, you are connected to <pre>{connectionID}</pre></p>
-				<p>Have fun rotating a box I guess 🤷🏻‍♂️</p>
+				<p style={styles.p}>Yay, you are connected to <pre style={styles.pre}>{connectionID}</pre></p>
+				<p style={styles.p}>Have fun rotating a box 🤷🏻‍♂️</p>
 			</div>
 		)
 	}
 
 	return (
 		<>
-			<p>Enter the code to control the cube</p>
-			<input type="number" placeholder="e.g. 61511" value={viewCode} onChange={handleSetCode} ></input>
-			<button onClick={handleOnSubmit}>CONNECT</button>
+			<p style={styles.p} >Enter the code to control the cube</p>
+			<form onSubmit={handleOnSubmit}>
+					<input style={styles.input} type="number" placeholder="e.g. 61511" value={viewCode} onChange={handleSetCode} ></input>
+					<button style={styles.button} onClick={handleOnSubmit}>CONNECT</button>
+			</form>
 		</>
 	);
 }
