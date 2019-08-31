@@ -62,7 +62,7 @@ const Viewer = ({connectionID, orientation: {alpha, beta, gamma}}) => {
 				your code<br/>
 				<span style={styles.span}>{connectionID}</span>
 			</p>
-			<p style={{...styles.p, ...styles.pIntro}}>go to site on mobile  <a style={styles.aIntro} href={window.location.href}>{window.location.href}</a> info piece here</p>
+			<p style={{...styles.p, ...styles.pIntro}}>Go here on yout phone:  <a style={styles.aIntro} href={window.location.href}>{window.location.href}</a></p>
 			
 			<Canvas camera={{ position: [0, 0, 15] }}>
 				<ambientLight intensity={0.8} />
