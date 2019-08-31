@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bc05bf3fac9b712ddfe8d6f2600376ed",
+    "revision": "0c97a37051d706bf0658ec0a2b6499cf",
     "url": "/gyro-thing/index.html"
   },
   {
-    "revision": "159d02c220a2dfe7eefa",
+    "revision": "84ba3db4a8925680c980",
     "url": "/gyro-thing/static/css/main.19830526.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/gyro-thing/static/js/2.f606d68c.chunk.js"
   },
   {
-    "revision": "159d02c220a2dfe7eefa",
-    "url": "/gyro-thing/static/js/main.d796703b.chunk.js"
+    "revision": "84ba3db4a8925680c980",
+    "url": "/gyro-thing/static/js/main.f7f5b5bd.chunk.js"
   },
   {
     "revision": "a21b3789ba6a6dc6aae4",
