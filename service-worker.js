@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/gyro-thing/precache-manifest.648f9de36cd72b91fc007ce90747223d.js"
+  "/gyro-thing/precache-manifest.60892513cf6ff15918a3e2c98f200a95.js"
 );
 
 self.addEventListener('message', (event) => {
