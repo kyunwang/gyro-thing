@@ -34,14 +34,14 @@ const styles = {
 function Box({ rotation }) {
   return (
     <mesh
-			visible
-			userData={{ test: "hello" }} 
-			position={[0, 0, 0]}
-			rotation={rotation}
-		>
-			<boxGeometry attach="geometry" args={[2, 2, 2]} />
-			<meshStandardMaterial attach="material" color="indianred" transparent />
-		</mesh>
+		visible
+		userData={{ test: "hello" }} 
+		position={[0, 0, 0]}
+		rotation={rotation}
+	>
+		<boxGeometry attach="geometry" args={[2, 2, 2]} />
+		<meshStandardMaterial attach="material" color="indianred" transparent />
+	</mesh>
   )
 };
 

@@ -1,7 +1,17 @@
+const fs = require('fs');
+const https = require('https');
+const express = require('express');
 const WebSocket = require('ws');
 const { detectMobile, parseJSON, readySocketData } = require('./helpers');
 
-const wss = new WebSocket.Server({ port: 8080 });
+var app = express()
+
+const server = https.createServer({
+	cert: fs.readFileSync('./server.cert'),
+	key: fs.readFileSync('./server.key')
+}, app);
+
+const wss = new WebSocket.Server({ server, host: '172.21.88.154' });
 
 // Maintaining clients in this object
 const clients = {};
@@ -19,7 +29,14 @@ function getUniqueID() {
 	return Math.floor(Math.random() * 90000 + 10000);
 }
 
+app.get('/', function (req, res) {
+	res.send('hello world')
+  })
+
+
 wss.on('connection', (ws, req) => {
+	const ip = req.socket.remoteAddress;
+	console.log(ip);
 	const isMobile = detectMobile(req.headers['user-agent'].toLowerCase());
 
 	const userID = getUniqueID();
@@ -91,3 +108,5 @@ function handleSocketMessages(ws, message) {
 // register-client
 // receive-orientation
 // result-client-check
+
+server.listen(8080);

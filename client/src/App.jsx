@@ -1,5 +1,5 @@
 import './App.css'
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 
 import Viewer from './screens/Viewer';
 import Controller from './screens/Controller';
@@ -7,60 +7,31 @@ import Controller from './screens/Controller';
 import { initSockets, readySocketData, parseJSON } from './helpers/socket';
 import { detectMobile } from './helpers/detectMobile.js';
 
-
-class App extends Component {
-	state = {
-		isMobile: detectMobile(),
-		// whatVersion: null,
-		orientation: {alpha: null, beta: null, gamma: null,},
-		wsClient: null,
-		connectionID: null
-	}
-
-	componentDidMount() {
-		const { isMobile } = this.state;
-		const url = 'wss://gyro-thing-server-imwbhkzgzj.now.sh';
-		
-		const wsClient = initSockets({url, callback: this.handleSockets});
-		
-		// Add support shizzle feedback - when using non supporting device
-
-		if (window.DeviceOrientationEvent && isMobile) {
-			window.addEventListener('deviceorientation', this.handleDeviceOrientation, false);
-			// this.setState({wsClient, whatVersion: 'Mobile'})
-		} else {
-			// this.setState({wsClient, whatVersion: 'Viewer'})
-		}
-
-		this.setState({wsClient});
-	}
-
-	componentWillUnmount() {
-		window.removeEventListener('deviceorientation', this.handleDeviceOrientation)
-	}
+const App = () => {
+	const [isMobile, setIsMobile] = useState(detectMobile())
+	const [orientation, setOrientation] = useState({alpha: null, beta: null, gamma: null,})
+	const [wsClient, setWsClient] = useState(null)
+	const [connectionID, setConnectionID] = useState(null)
 
 
-
-	//for desktop/larger screens / viewer
-	handleSockets = (data) => {
+	const handleSockets = (data) => {
 		// console.log(parseJSON(data.data));
 		const parsedData = parseJSON(data.data);
 		switch(parsedData.type) {
 			case 'register-client':
 			case 'result-client-check':;
-				this.setState({connectionID: parsedData.data});
+				setConnectionID(parsedData.data)
 				break;
 			case 'receive-orientation': 
-				this.setState({orientation: parsedData.data.orientation});
+			console.log('receiving');
+				setOrientation(parsedData.data.orientation)
 				break;
 			default: 
 				break;
 		}
 	}
 
-	// for mobile/controller
-	handleDeviceOrientation = (orientation) => {
-		const { wsClient, connectionID } = this.state;
+	const handleDeviceOrientation = (orientation) => {
 		const { alpha, beta, gamma } = orientation;
 
 		if (!connectionID) return; // TODO: show a feedback
@@ -81,10 +52,8 @@ class App extends Component {
 			wsClient.send(data);
 		}
 	}
-
-
-	handleSubmitCode = (connectionID) => {
-		const { wsClient } = this.state;
+	
+	const handleSubmitCode = (connectionID) => {
 		if (connectionID >= 10000 && connectionID <= 99999) {
 			// this.setState({ connectionID });
 
@@ -93,22 +62,43 @@ class App extends Component {
 		}
 	}
 
-	render() {
-		const { connectionID, orientation, isMobile } = this.state;
+	useEffect(() => {
+		// console.log(location);
+		// const url = 'ws://localhost:8080';
+		// const url = 'wss://127.0.0.1:8080';
+		const url = `wss://${location.hostname}:8080`;
+		
+		const wsClient = initSockets({url, callback: handleSockets});
+		
+		// Add support shizzle feedback - when using non supporting device
 
-		return (
-			<div className="main">
-				{
-					isMobile
-						? <Controller onSubmit={this.handleSubmitCode} connectionID={connectionID} />
-						: <Viewer orientation={orientation} connectionID={connectionID} />
-				}
-				<footer>
-					Made on a 🛋 by <a href="https://github.com/kyunwang">kyunwang</a>. Repo <a href="https://github.com/kyunwang/gyro-thing">here</a>
-			</footer>
-			</div>
-		);
-	}
+		if (window.DeviceOrientationEvent && isMobile) {
+			window.addEventListener('deviceorientation', handleDeviceOrientation, false);
+			// this.setState({wsClient, whatVersion: 'Mobile'})
+		} else {
+			// this.setState({wsClient, whatVersion: 'Viewer'})
+		}
+
+		setWsClient(wsClient)
+
+		return () => {
+			window.removeEventListener('deviceorientation', handleDeviceOrientation)
+		}
+	}, [])
+
+
+	return (
+		<div className="main">
+			{
+				isMobile
+					? <Controller onSubmit={handleSubmitCode} connectionID={connectionID} />
+					: <Viewer orientation={orientation} connectionID={connectionID} />
+			}
+			<footer>
+				Made on a 🛋 by <a href="https://github.com/kyunwang">kyunwang</a>. Repo <a href="https://github.com/kyunwang/gyro-thing">here</a>
+		</footer>
+		</div>
+	);
 }
 
 export default App;
