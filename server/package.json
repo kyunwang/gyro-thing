@@ -19,7 +19,7 @@
 	"homepage": "https://github.com/kyunwang/server",
 	"dependencies": {
 		"express": "^4.17.1",
-		"nodemon": "^1.19.1",
-		"ws": "^7.1.2"
+		"nodemon": "^2.0.7",
+		"ws": "^7.4.6"
 	}
 }
