@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Canvas } from 'react-three-fiber'
+import { Canvas } from '@react-three/fiber';
 
 // Quick styling
 const styles = {

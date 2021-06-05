@@ -1,48 +1,23 @@
 {
-	"name": "client",
-	"version": "0.0.1",
-	"private": true,
-	"author": "Kang Yun Wang <me@kyunwang.nl> (https://www.kyunwang.nl)",
-	"license": "MIT",
-	"description": "",
-	"keywords": [],
-	"dependencies": {
-		"react": "^16.9.0",
-		"react-dom": "^16.9.0",
-		"react-scripts": "3.1.1",
-		"react-three-fiber": "^2.3.6",
-		"three": "^0.107.0",
-		"three-orbit-controls": "^82.1.0",
-		"three-orbitcontrols": "^2.102.2",
-		"ws": "^7.1.2"
-	},
-	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/kyunwang/client.git"
-	},
-	"bugs": {
-		"url": "https://github.com/kyunwang/client/issues"
-	},
-	"homepage": "https://kyunwang.github.io/gyro-thing/",
-	"eslintConfig": {
-		"extends": "react-app"
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	}
+  "version": "0.0.0",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^6.2.2",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "three": "^0.107.0",
+    "three-orbit-controls": "^82.1.0",
+    "three-orbitcontrols": "^2.102.2",
+    "ws": "^7.1.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react-refresh": "^1.3.1",
+    "vite": "^2.3.5"
+  }
 }
